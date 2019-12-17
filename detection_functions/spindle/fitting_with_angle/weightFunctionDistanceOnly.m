@@ -1,19 +1,6 @@
 function [weight] = weightFunctionDistanceOnly(xx,yy,pars,second_degree,method)
     
-    % Rotation matrix
-    theta = pars(1);
-    R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
-    
-    
-    % Center at the point
-    xx = xx-pars(2);
-    yy = yy-pars(3);
-    
-    % Rotate
-    coords = [xx yy] * R;
-    
-    xx = coords(:,1);
-    yy = coords(:,2);
+    [xx,yy]=centerThenRotate(xx,yy,pars(2),pars(3),pars(1));
     
     if second_degree
         expected = pars(4)*xx.^2;

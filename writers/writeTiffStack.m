@@ -1,4 +1,5 @@
 function [] = writeTiffStack(stack,output_file)
+    % writeTiffStack(stack,output_file)
     % Write a stack of 3 dimensions into a tiff file using imwrite.
     
     % Delete the file if it exists, since we are writing in appending mode.

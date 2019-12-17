@@ -5,7 +5,7 @@ if nargin<5
 end
 
 
-x = -170:170;
+x = -200:200;
 y = x.^2*pars(4);
 poly=resamplePolyline([x',y'],round(sum(sqrt(diff(x).^2+diff(y).^2))));
 

@@ -13,7 +13,7 @@ switch mode
     case 1
         settings = struct();
         settings.weight_center=0.001;
-        settings.decay_length = 10;
+        settings.decay_length = 5;
         fun = @(pars) weightFunctionExponentialDecay(xx,yy,zz-bg,pars,second_degree,settings);
     case 2
         settings = struct();
