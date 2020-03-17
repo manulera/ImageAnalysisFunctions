@@ -1,4 +1,4 @@
-function [ raw, nb_tpoints,channels,resolution,time_out,position_name,position,stage_names ] = readMetamorphNd( direc,ndfile,do_projection,position_name )
+function [ raw, nb_tpoints,channels,resolution,time_out,position_name,position,stage_names ] = readMetamorphNd( direc,ndfile,position_name )
     % Read a metamorph nd file, and make a projection or not, and chose a
     % position or give it as an argument
 
@@ -86,17 +86,6 @@ function [ raw, nb_tpoints,channels,resolution,time_out,position_name,position,s
             if i==take_time
                 time{t} = get_time_frommeta(reader.getTag('ImageDescription'));
             end
-        end
-        if ~isempty(do_projection)
-            switch do_projection
-                case 'max'
-                    raw{i} = max(raw{i},[],3);
-                case 'sum'
-                    raw{i} = sum(raw{i},3);
-                case 'mean'
-                    raw{i} = mean(raw{i},3);
-            end
-            raw{i}=squeeze(raw{i});
         end
         close(barry)
     end

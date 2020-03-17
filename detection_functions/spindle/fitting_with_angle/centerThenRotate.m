@@ -1,5 +1,5 @@
 function [xx,yy] = centerThenRotate(xx,yy,x0,y0,angle)
-    % [xx,yy] = centerThenRotate(xx,yy,angle,x0,y0)
+    % [xx,yy] = centerThenRotate(xx,yy,x0,y0,angle)
     % Do [xx,yy]-[x0,y0], then rotate with angle
     
     % Center at the point

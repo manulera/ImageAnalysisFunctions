@@ -1,6 +1,7 @@
 function [profile,local_background] = multiple2SingleImprofile(ints,p)
     
     signal = false(1,p.total_width*2+1);
+%     p.signal_width = 1;
     signal(p.center_line-p.signal_width:p.center_line+p.signal_width)=true;
     background = false(1,p.total_width*2+1);
     bg1 = p.center_line-p.signal_width-1;

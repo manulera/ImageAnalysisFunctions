@@ -1,7 +1,9 @@
 function [keep_polygon,keep_mask] = intersectLineMask(x,y,mask)
     % Inputting a polyline (x,y), keep the parts of the mask that intersect
-    % with this polyline. Returns the indexes of the polyline to keep as
-    % keep_polygon, and the intersected mask as keep_mask.
+    % with this polyline. Returns:
+    % keep_polygon : a logical vector of the same length as the polyline,
+    % where positions inside the mask are true.
+    % keep_mask : intersection of mask and line.
     
     [cont,mask_pieces] = bwboundaries(mask);
     keep_polygon = false(size(x));
