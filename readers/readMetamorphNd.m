@@ -3,9 +3,6 @@ function [ raw, nb_tpoints,channels,resolution,time_out,position_name,position,s
     % position or give it as an argument
 
     if nargin<3
-        do_projection = '';
-    end
-    if nargin<4
         position_name = '';
     end
     
