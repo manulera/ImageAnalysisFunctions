@@ -1,5 +1,4 @@
 function [small_video,x_box,y_box,transposing] = makeSmallVideo(video,masks,expand)
-            
     
     % Return a cropped version of the big video based on the masks
     [x_box,y_box] = expandBoundingBox(any(masks,3),expand);

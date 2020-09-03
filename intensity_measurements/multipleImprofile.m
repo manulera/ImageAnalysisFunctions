@@ -7,7 +7,9 @@ function [ints] = multipleImprofile(xx,yy,ima,method)
     nb_vals = size(xx,2);
     nb_slices = size(xx,1);
     for i =1:nb_slices
-        ints(i,:) = improfile(ima,xx(i,:),yy(i,:),nb_vals,method);
+        if numel(xx(i,:))~=1
+            ints(i,:) = improfile(ima,xx(i,:),yy(i,:),nb_vals,method);
+        end
     end
     
 end
