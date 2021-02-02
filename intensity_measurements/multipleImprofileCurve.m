@@ -7,7 +7,12 @@ end
 
 x = -200:200;
 y = x.^2*pars(4);
-poly=resamplePolyline([x',y'],round(sum(sqrt(diff(x).^2+diff(y).^2))));
+len=round(sum(sqrt(diff(x).^2+diff(y).^2)));
+% THis is an error for sure
+if len>3000
+    len=400;
+end
+poly=resamplePolyline([x',y'],len);
 
 
 % In this case, we generate parallel parabollas (or lines if pars(4)=0)
