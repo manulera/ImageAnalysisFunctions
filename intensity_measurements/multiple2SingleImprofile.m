@@ -1,5 +1,6 @@
 function [profile,local_background] = multiple2SingleImprofile(ints,p)
-    
+    % Sums the total intensity minus local background for a width specified
+    % in p
     signal = false(1,p.total_width*2+1);
 %     p.signal_width = 1;
     signal(p.center_line-p.signal_width:p.center_line+p.signal_width)=true;

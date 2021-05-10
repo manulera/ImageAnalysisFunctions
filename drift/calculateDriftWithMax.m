@@ -23,10 +23,22 @@ function [] = calculateDriftWithMax(movie_file,mask_file,time_start,time_finish)
         x_vals(i)=x-x_vals(time_start);
         y_vals(i)=y-y_vals(time_start);
     end
+    y_vals = -y_vals;
+    x_vals = -x_vals;
+    x_vals(time_start)=0;
+    y_vals(time_start)=0;
     % Make this negative and add the weird lines
     x_vals(time_finish:end)=x_vals(time_finish);
     y_vals(time_finish:end)=y_vals(time_finish);
-    dlmwrite('drift.txt',[x_vals y_vals z_vals],'\t');
+    drift_preamble="ROI zero-based\nx_min	y_min	z_min	x_max	y_max	z_max\n0	0	0	0	0	0\nShifts\ndx	dy	dz\n";
+    
+    fid=fopen('drift.txt','w');
+    fprintf(fid,drift_preamble);
+    fclose(fid);
+    dlmwrite('drift.txt',[x_vals y_vals z_vals],'delimiter','\t','-append');
+    
+    % Add this lines to the top of the file
+    
     
 end
 

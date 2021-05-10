@@ -1,15 +1,7 @@
-function [result] = weightedOrthogonalFit(ima,mask,bg,sugg,second_degree,mode)
-if nargin<6 ||isempty(mode)
-    mode = 1;
-end
-% sugg(1)=atan(sugg(1));
-
-% lis = regionprops(mask & ~isnan(ima),ima,'PixelList','PixelValues');
-% xx = lis.PixelList(:,1);
-% yy = lis.PixelList(:,2);
-% zz = lis.PixelValues;
 
 [xx,yy,zz] = coordinatesAndValuesInMask(mask & ~isnan(ima),ima);
+
+
 
 switch mode
     case 1
@@ -33,5 +25,3 @@ result = fminsearch(fun, sugg, opts);
 if ~second_degree
     result(4)=0;
 end
-end
-
