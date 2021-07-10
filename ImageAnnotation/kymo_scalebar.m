@@ -1,4 +1,4 @@
-function [] = kymo_scalebar(image,contrast,x_res,t_res,only_scalebar)
+function [ima] = kymo_scalebar(image,contrast,x_res,t_res,only_scalebar)
     
     if nargin<5||isempty(only_scalebar)
         only_scalebar = false;
